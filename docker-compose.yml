@@ -1,0 +1,24 @@
+version: '3.3'
+services:
+    nodejs:
+       build:
+         context: ./nodejs
+         dockerfile: Dockerfile
+       profiles: ["dev", "staging"]
+       ports:
+         - "9002:3000"
+    
+    laravel:
+       build:
+         context: ./laravel
+         dockerfile: Dockerfile
+       profiles: ["staging", "production"]
+    
+
+    database:
+       image: mysql
+       env_file:
+          - .env
+       volumes:
+          - ./custom:/etc/mysql/conf.d
+       profiles: ["staging", "production"]
