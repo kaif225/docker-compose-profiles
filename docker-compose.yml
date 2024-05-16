@@ -6,7 +6,7 @@ services:
          dockerfile: Dockerfile
        profiles: ["dev", "staging"]
        ports:
-         - "9002:3000"
+         - "9004:3000"
     
     laravel:
        build:
