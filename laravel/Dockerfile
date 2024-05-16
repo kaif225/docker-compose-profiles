@@ -1,6 +1,6 @@
 FROM php:8.1-fpm-alpine
-WORKDIR /app
-COPY . .
+WORKDIR /app/
+COPY . /app/
 RUN apk update; \
     apk add --no-cache curl git zip
 RUN rm -rf /var/cache/*; \
